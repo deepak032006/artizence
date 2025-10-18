@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 export default function Expertise() {
   const stats = [
@@ -13,6 +13,26 @@ export default function Expertise() {
 
   const [counts, setCounts] = useState(stats.map(() => 0));
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const startCounting = useCallback(() => {
+    const duration = 2000;
+    const frameRate = 30;
+    const totalFrames = Math.round(duration / (1000 / frameRate));
+
+    stats.forEach((stat, i) => {
+      let frame = 0;
+      const counter = setInterval(() => {
+        frame++;
+        const progress = frame / totalFrames;
+        setCounts((prev) => {
+          const newCounts = [...prev];
+          newCounts[i] = Math.floor(stat.value * progress);
+          return newCounts;
+        });
+        if (frame === totalFrames) clearInterval(counter);
+      }, 1000 / frameRate);
+    });
+  }, [stats]);
 
   useEffect(() => {
     let observer: IntersectionObserver;
@@ -31,33 +51,11 @@ export default function Expertise() {
       observer.observe(sectionRef.current);
     }
     return () => observer && observer.disconnect();
-  }, []);
-
-  const startCounting = () => {
-    const duration = 2000;
-    const frameRate = 30;
-    const totalFrames = Math.round(duration / (1000 / frameRate));
-
-    stats.forEach((stat, i) => {
-      let frame = 0;
-      const counter = setInterval(() => {
-        frame++;
-        const progress = frame / totalFrames;
-        setCounts((prev) => {
-          const newCounts = [...prev];
-          newCounts[i] = Math.floor(stat.value * progress);
-          return newCounts;
-        });
-        if (frame === totalFrames) clearInterval(counter);
-      }, 1000 / frameRate);
-    });
-  };
+  }, [startCounting]);
 
   return (
     <div className="flex justify-end pr-10">
       <section className="w-full bg-white text-[#2F327D] py-20 px-6 md:px-20">
-
-        {/* ===== Why Work With Us (First) ===== */}
         <div ref={sectionRef} className="max-w-5xl ml-auto mb-32 shadow-md">
           <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-[#2F327D] text-center">
             Why work with us
@@ -74,7 +72,6 @@ export default function Expertise() {
           </div>
         </div>
 
-        {/* ===== Industry Expertise ===== */}
         <div className="max-w-5xl ml-auto mb-32 shadow-md">
           <h3 className="text-3xl font-semibold mb-10 text-[#2F327D]">
             LLM Industry expertise
@@ -93,26 +90,19 @@ export default function Expertise() {
                 LLM in Healthcare
               </h4>
               <ul className="list-disc list-inside space-y-2 text-black text-left">
-              <li>
-                Clinical Diagnosis and Treatment Suggestions – LLMs can rapidly  analyze vast amounts of medical literature, offer potential diagnoses  based on symptoms, and suggest treatment options.
-              </li>
-              <li>
-                Personalized Medicine and Health Plans -LLMs can create tailored  health plans by understanding patients’ medical history, lifestyle, and  genetic factors.
-              </li>
-              <li>
-                Medical Research and Drug Discovery – LLMs accelerate research by analyzing large datasets
-              </li>
-            </ul>
-              
+                <li>
+                  Clinical Diagnosis and Treatment Suggestions – LLMs can rapidly analyze vast amounts of medical literature, offer potential diagnoses based on symptoms, and suggest treatment options.
+                </li>
+                <li>
+                  Personalized Medicine and Health Plans - LLMs can create tailored health plans by understanding patients&apos; medical history, lifestyle, and genetic factors.
+                </li>
+                <li>
+                  Medical Research and Drug Discovery – LLMs accelerate research by analyzing large datasets
+                </li>
+              </ul>
             </div>
           </div>
-          
         </div>
-
-       
-        
-        {/* ===== AI Consulting Info ===== */}
-        
       </section>
     </div>
   );

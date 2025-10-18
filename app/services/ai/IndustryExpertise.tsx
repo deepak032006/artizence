@@ -1,20 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 
 export default function Expertise() {
-  const stats = [
-    { label: "AI Experts", value: 100 },
-    { label: "Software Products Delivered", value: 160 },
-    { label: "AI Solutions", value: 50 },
-    { label: "Total Years of Experience", value: 15 },
-  ];
+  const stats = useMemo(
+    () => [
+      { label: "AI Experts", value: 100 },
+      { label: "Software Products Delivered", value: 160 },
+      { label: "AI Solutions", value: 50 },
+      { label: "Total Years of Experience", value: 15 },
+    ],
+    []
+  );
 
   const [counts, setCounts] = useState(stats.map(() => 0));
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // ✅ useCallback so it can safely be added as a dependency
   const startCounting = useCallback(() => {
     const duration = 2000;
     const frameRate = 30;
@@ -35,7 +37,6 @@ export default function Expertise() {
     });
   }, [stats]);
 
-  // ✅ add startCounting to dependency array
   useEffect(() => {
     let observer: IntersectionObserver;
     if (sectionRef.current) {
@@ -58,7 +59,7 @@ export default function Expertise() {
   return (
     <div className="flex justify-end pr-10">
       <section className="w-full bg-white text-[#2F327D] py-20 px-6 md:px-20">
-        {/* ===== Why Work With Us ===== */}
+        {/* Why Work With Us */}
         <div ref={sectionRef} className="max-w-5xl ml-auto mb-32 shadow-md">
           <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-[#2F327D] text-center">
             Why work with us
@@ -75,7 +76,7 @@ export default function Expertise() {
           </div>
         </div>
 
-        {/* ===== Industry Expertise ===== */}
+        {/* Industry Expertise */}
         <div className="max-w-5xl ml-auto mb-32 shadow-md">
           <h3 className="text-3xl font-semibold mb-10 text-[#2F327D]">
             Industry expertise

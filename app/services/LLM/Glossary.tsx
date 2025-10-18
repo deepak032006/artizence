@@ -7,7 +7,7 @@ export default function Glossary() {
         LLM Development - FAQ
       </h3>
       <ul className="list-none space-y-4 text-gray-100">
-        <li className=" text-sm">
+        <li className="text-sm">
           <span className="font-bold">What is an LLM, and how can it benefit my business?</span> An LLM (Large Language Model) is an advanced AI system trained on vast amounts of text data, capable of understanding and generating human-like text. It can benefit your business by automating complex tasks, enhancing customer service, improving decision-making processes, and streamlining operations. LLMs can handle everything from content creation and data analysis to personalized recommendations and intelligent automation, potentially increasing efficiency and unlocking new capabilities across various departments.
         </li>
         <li>LLM Development Services. What you can expect?</li>
@@ -16,7 +16,7 @@ export default function Glossary() {
         <li>What are domain-specific LLMs?</li>
         <li>What are the techniques of customization LLMs?</li>
         <li>Why Choose Addepto for Building Your LLM Applications?</li>
-        <li>Addepto's LLM-powered Knowledge Assistant: ContextClue</li>
+        <li>Addepto&apos;s LLM-powered Knowledge Assistant: ContextClue</li>
         <li>
           Which data is used by artificial intelligence and what databases I can
           connect?

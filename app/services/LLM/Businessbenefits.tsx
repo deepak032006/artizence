@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const CenterColumnsWithClients: React.FC = () => {
-  // ===== Clients state and data =====
   const [index, setIndex] = useState(0);
 
   const testimonials = [
@@ -29,16 +28,13 @@ const CenterColumnsWithClients: React.FC = () => {
     },
   ];
 
-  const handleNext = () =>
-    setIndex((prev) => (prev + 1) % testimonials.length);
-  const handlePrev = () =>
-    setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const handleNext = () => setIndex((prev) => (prev + 1) % testimonials.length);
+  const handlePrev = () => setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
     <div>
-      {/* ===== CenterColumns Section ===== */}
+      {/* CenterColumns Section */}
       <div className="flex justify-center max-w-[1000px] mx-auto mt-25 px-2 min-h-[550px]">
-        {/* Left column (menu & headings) */}
         <div className="flex flex-col gap-2 w-[390px] pt-6">
           <h2 className="font-nunito font-bold text-2xl text-[#2F327D] mb-2">
             Business Benefits
@@ -55,22 +51,21 @@ const CenterColumnsWithClients: React.FC = () => {
             <p className="font-nunito font-medium text-base text-[#000000]">What are domain-specific LLMs?</p>
             <p className="font-nunito font-medium text-base text-[#000000]">What are the techniques of customization LLMs?</p>
             <p className="font-nunito font-medium text-base text-[#000000]">Why Choose Addepto for Building Your LLM Applications?</p>
-            <p className="font-nunito font-medium text-base text-[#000000]">Addepto's LLM-powered Knowledge Assistant: ContextClue</p>
+            <p className="font-nunito font-medium text-base text-[#000000]">Addepto&apos;s LLM-powered Knowledge Assistant: ContextClue</p>
           </div>
         </div>
 
-        {/* Right column (info card) */}
         <div className="flex flex-col justify-center items-center w-[390px] mt-25 ml-8">
           <div className="w-full p-6 bg-white rounded-2xl shadow-lg flex flex-col gap-3">
             <h3 className="font-nunito font-bold text-lg text-[#000000] mb-2">
               ContextClue: Advanced knowledge managing and data analysis through Generative AI solutions
             </h3>
-             <p className="font-nunito font-medium text-sm text-[#000000] opacity-80 leading-relaxed mb-4">
-        ContextClue, developed by Addepto, transforms enterprise knowledge management by going beyond traditional data analysis. Going beyond traditional text analysis, this versatile tool seamlessly handles multiple data formats – from PDF documents and images to SQL databases, BI dashboards, and spreadsheets. What sets ContextClue apart is its ability to serve as a comprehensive knowledge base assistant, understanding context and relationships across all your data sources. Through advanced Generative AI solutions, it doesn’t just analyze data – it becomes your organization’s memory, capable of answering complex queries, identifying patterns, and delivering insights from your entire information landscape. Organizations can maintain complete control over their data by deploying ContextClue on their private infrastructure. This secure large language model deployment model ensures sensitive information remains protected while delivering powerful analytical capabilities. The platform’s extensive customization features make it an ideal foundation for building specialized enterprise applications. By utilizing ContextClue as a development accelerator, organizations can rapidly deploy tailored Generative AI solutions, significantly reducing both development time and resource investment compared to building from scratch. Ready to transform your data analysis capabilities? Contact Addepto to explore how ContextClue can drive innovation in your organization.
-      </p>
+            <p className="font-nunito font-medium text-sm text-[#000000] opacity-80 leading-relaxed mb-4">
+              ContextClue, developed by Addepto, transforms enterprise knowledge management by going beyond traditional data analysis. Going beyond traditional text analysis, this versatile tool seamlessly handles multiple data formats – from PDF documents and images to SQL databases, BI dashboards, and spreadsheets. What sets ContextClue apart is its ability to serve as a comprehensive knowledge base assistant, understanding context and relationships across all your data sources. Through advanced Generative AI solutions, it doesn&apos;t just analyze data – it becomes your organization&apos;s memory, capable of answering complex queries, identifying patterns, and delivering insights from your entire information landscape. Organizations can maintain complete control over their data by deploying ContextClue on their private infrastructure. This secure large language model deployment model ensures sensitive information remains protected while delivering powerful analytical capabilities. The platform&apos;s extensive customization features make it an ideal foundation for building specialized enterprise applications. By utilizing ContextClue as a development accelerator, organizations can rapidly deploy tailored Generative AI solutions, significantly reducing both development time and resource investment compared to building from scratch. Ready to transform your data analysis capabilities? Contact Addepto to explore how ContextClue can drive innovation in your organization.
+            </p>
             <div className="flex items-center justify-between mt-3">
               <button className="px-6 py-2 rounded-full font-bold text-white text-sm bg-gradient-to-r from-[#B541FF] to-[#4F5FFF] shadow-md mr-4">
-                LET'S TALK
+                LET&apos;S TALK
               </button>
               <button className="font-nunito font-bold text-sm text-[#2F327D]">SHOW MORE</button>
             </div>
@@ -78,10 +73,9 @@ const CenterColumnsWithClients: React.FC = () => {
         </div>
       </div>
 
-      {/* ===== Clients Section ===== */}
+      {/* Clients Section */}
       <div className="flex justify-end pr-10 mt-20">
         <main className="w-full max-w-[80%] bg-white text-gray-800 flex flex-col items-start justify-end py-20 px-6 md:px-16 space-y-20 ml-auto">
-          {/* Client logos */}
           <section className="w-full max-w-5xl ml-auto space-y-8">
             <h2 className="text-2xl md:text-3xl font-semibold text-blue-900 text-left">
               Clients that trusted us
@@ -122,14 +116,11 @@ const CenterColumnsWithClients: React.FC = () => {
             </div>
           </section>
 
-          {/* Testimonials */}
           <section className="w-full max-w-5xl ml-auto space-y-10 relative">
             <h2 className="text-2xl md:text-3xl font-semibold text-blue-900 text-left">
               What our clients say
             </h2>
-
             <div className="flex items-center justify-between relative">
-              {/* Prev Button */}
               <button
                 onClick={handlePrev}
                 className="absolute -left-5 md:-left-10 bg-white shadow-md rounded-full p-3 hover:bg-gray-100 z-10 transition"
@@ -137,8 +128,6 @@ const CenterColumnsWithClients: React.FC = () => {
               >
                 <ArrowLeft className="text-blue-900" />
               </button>
-
-              {/* Testimonials cards */}
               <div className="flex gap-10 overflow-visible w-full justify-start px-12 transition-all duration-500 ease-in-out">
                 {[testimonials[index], testimonials[(index + 1) % testimonials.length]].map(
                   (t, i) => (
@@ -164,8 +153,6 @@ const CenterColumnsWithClients: React.FC = () => {
                   )
                 )}
               </div>
-
-              {/* Next Button */}
               <button
                 onClick={handleNext}
                 className="absolute -right-5 md:-right-10 bg-white shadow-md rounded-full p-3 hover:bg-gray-100 z-10 transition"
