@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const CenterColumnsWithClients: React.FC = () => {
-  // ===== Clients state and data =====
   const [index, setIndex] = useState(0);
 
   const testimonials = [
@@ -38,40 +37,58 @@ const CenterColumnsWithClients: React.FC = () => {
     <div>
       {/* ===== CenterColumns Section ===== */}
       <div className="flex justify-center max-w-[1000px] mx-auto mt-16 px-2 min-h-[550px]">
-        {/* Left column (menu & headings) */}
+        {/* Left column */}
         <div className="flex flex-col gap-2 w-[390px] pt-6">
           <h2 className="font-nunito font-bold text-2xl text-[#2F327D] mb-2">
             Business Benefits
           </h2>
           <div className="relative w-fit">
             <h1 className="font-nunito font-bold text-3xl text-[#2F327D] mt-2 mb-3 leading-tight whitespace-nowrap">
-              Artificial Intelligence – consulting in the field of AI solutions
+              Artificial Intelligence &ndash; consulting in the field of AI
+              solutions
             </h1>
           </div>
           <div className="flex flex-col gap-2 mt-4">
-            <p className="font-nunito font-medium text-base text-[#000000]">AI Consulting Services</p>
-            <p className="font-nunito font-medium text-base text-[#000000]">AI Strategy Consulting</p>
-            <p className="font-nunito font-medium text-base text-[#000000]">AI Technologies Consulting</p>
-            <p className="font-nunito font-medium text-base text-[#000000]">AI Benefits</p>
-            <p className="font-nunito font-medium text-base text-[#000000]">Our team</p>
+            <p className="font-nunito font-medium text-base text-[#000000]">
+              AI Consulting Services
+            </p>
+            <p className="font-nunito font-medium text-base text-[#000000]">
+              AI Strategy Consulting
+            </p>
+            <p className="font-nunito font-medium text-base text-[#000000]">
+              AI Technologies Consulting
+            </p>
+            <p className="font-nunito font-medium text-base text-[#000000]">
+              AI Benefits
+            </p>
+            <p className="font-nunito font-medium text-base text-[#000000]">
+              Our team
+            </p>
           </div>
         </div>
 
-        {/* Right column (info card) */}
+        {/* Right column */}
         <div className="flex flex-col justify-center items-center w-[390px] mt-25 ml-8">
           <div className="w-full p-6 bg-white rounded-2xl shadow-lg flex flex-col gap-3">
             <h3 className="font-nunito font-bold text-lg text-[#000000] mb-2">
               What AI consulting services can you expect?
             </h3>
             <p className="font-nunito font-medium text-sm text-[#000000] opacity-80 leading-relaxed mb-4">
-              Addepto offers unique AI consulting services that will help you realize how many opportunities come from implementing AI solutions into your business.<br /><br />
-              Artificial Intelligence influences most industries, among the most popular are: retail, eCommerce, manufacturing, finance, healthcare, marketing, and gaming sector.
+              Addepto offers unique AI consulting services that will help you
+              realize how many opportunities come from implementing AI solutions
+              into your business.<br />
+              <br />
+              Artificial Intelligence influences most industries, among the most
+              popular are: retail, eCommerce, manufacturing, finance,
+              healthcare, marketing, and gaming sector.
             </p>
             <div className="flex items-center justify-between mt-3">
               <button className="px-6 py-2 rounded-full font-bold text-white text-sm bg-gradient-to-r from-[#B541FF] to-[#4F5FFF] shadow-md mr-4">
-                LET'S TALK
+                LET&apos;S TALK
               </button>
-              <button className="font-nunito font-bold text-sm text-[#2F327D]">SHOW MORE</button>
+              <button className="font-nunito font-bold text-sm text-[#2F327D]">
+                SHOW MORE
+              </button>
             </div>
           </div>
         </div>
@@ -128,7 +145,6 @@ const CenterColumnsWithClients: React.FC = () => {
             </h2>
 
             <div className="flex items-center justify-between relative">
-              {/* Prev Button */}
               <button
                 onClick={handlePrev}
                 className="absolute -left-5 md:-left-10 bg-white shadow-md rounded-full p-3 hover:bg-gray-100 z-10 transition"
@@ -137,7 +153,6 @@ const CenterColumnsWithClients: React.FC = () => {
                 <ArrowLeft className="text-blue-900" />
               </button>
 
-              {/* Testimonials cards */}
               <div className="flex gap-10 overflow-visible w-full justify-start px-12 transition-all duration-500 ease-in-out">
                 {[testimonials[index], testimonials[(index + 1) % testimonials.length]].map(
                   (t, i) => (
@@ -164,7 +179,6 @@ const CenterColumnsWithClients: React.FC = () => {
                 )}
               </div>
 
-              {/* Next Button */}
               <button
                 onClick={handleNext}
                 className="absolute -right-5 md:-right-10 bg-white shadow-md rounded-full p-3 hover:bg-gray-100 z-10 transition"

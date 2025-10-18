@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 export default function Expertise() {
   const stats = [
@@ -14,26 +14,8 @@ export default function Expertise() {
   const [counts, setCounts] = useState(stats.map(() => 0));
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    let observer: IntersectionObserver;
-    if (sectionRef.current) {
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              startCounting();
-              observer.disconnect();
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-      observer.observe(sectionRef.current);
-    }
-    return () => observer && observer.disconnect();
-  }, []);
-
-  const startCounting = () => {
+  // ✅ useCallback so it can safely be added as a dependency
+  const startCounting = useCallback(() => {
     const duration = 2000;
     const frameRate = 30;
     const totalFrames = Math.round(duration / (1000 / frameRate));
@@ -51,13 +33,32 @@ export default function Expertise() {
         if (frame === totalFrames) clearInterval(counter);
       }, 1000 / frameRate);
     });
-  };
+  }, [stats]);
+
+  // ✅ add startCounting to dependency array
+  useEffect(() => {
+    let observer: IntersectionObserver;
+    if (sectionRef.current) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              startCounting();
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(sectionRef.current);
+    }
+    return () => observer && observer.disconnect();
+  }, [startCounting]);
 
   return (
     <div className="flex justify-end pr-10">
       <section className="w-full bg-white text-[#2F327D] py-20 px-6 md:px-20">
-
-        {/* ===== Why Work With Us (First) ===== */}
+        {/* ===== Why Work With Us ===== */}
         <div ref={sectionRef} className="max-w-5xl ml-auto mb-32 shadow-md">
           <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-[#2F327D] text-center">
             Why work with us
@@ -93,7 +94,12 @@ export default function Expertise() {
                 AI Consulting for Private Investments
               </h4>
               <p className="text-gray-600 leading-relaxed mb-6">
-                At Addepto, we possess deep expertise in the Private Investment (PE/VC) sector, enabling us to effectively navigate its complexities and address unique challenges faced by investment professionals. Our AI technologies are specifically tailored for this industry, offering significant business benefits through targeted use cases.
+                At Addepto, we possess deep expertise in the Private Investment
+                (PE/VC) sector, enabling us to effectively navigate its
+                complexities and address unique challenges faced by investment
+                professionals. Our AI technologies are specifically tailored for
+                this industry, offering significant business benefits through
+                targeted use cases.
               </p>
               <div className="flex gap-3">
                 <button className="bg-[#6A0DAD] text-white px-6 py-2.5 rounded-lg hover:bg-[#57108F] transition">
@@ -103,17 +109,14 @@ export default function Expertise() {
             </div>
           </div>
           <div className="flex justify-start gap-4 mt-6">
-            <span className="bg-[#6A0DAD] text-white text-sm px-3 py-1 rounded-full">Private Investments</span>
+            <span className="bg-[#6A0DAD] text-white text-sm px-3 py-1 rounded-full">
+              Private Investments
+            </span>
             <span className="text-gray-600 text-sm">Aviation</span>
             <span className="text-gray-600 text-sm">Legal</span>
             <span className="text-gray-600 text-sm">Automation</span>
           </div>
         </div>
-
-       
-        
-        {/* ===== AI Consulting Info ===== */}
-        
       </section>
     </div>
   );
