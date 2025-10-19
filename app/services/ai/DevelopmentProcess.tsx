@@ -2,8 +2,8 @@
 
 export default function DevelopmentProcess() {
   return (
-    <div className="flex justify-end pr-10">
-      <main className="w-full max-w-[90%] bg-white text-gray-800 flex flex-col items-start justify-end py-20  px-6 md:px-16 space-y-20 ml-50">
+    <div className="flex justify-end">
+      <main className="w-full max-w-[90%] bg-white text-gray-800 flex flex-col items-start justify-end py-20 px-0 space-y-20">
         {/* ===== LLM Development Process ===== */}
         <section className="w-full max-w-5xl ml-auto bg-[#3c1a88] text-white rounded-2xl p-10 md:p-16 space-y-6">
           <h2 className="text-2xl md:text-3xl font-semibold text-left">

@@ -57,8 +57,8 @@ export default function Expertise() {
   }, [startCounting]);
 
   return (
-    <div className="flex justify-end pr-10">
-      <section className="w-full bg-white text-[#2F327D] py-20 px-6 md:px-20">
+    <div className="flex justify-end">
+      <section className="w-full bg-white text-[#2F327D] py-20 px-0">
         {/* Why Work With Us */}
         <div ref={sectionRef} className="max-w-5xl ml-auto mb-32 shadow-md">
           <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-[#2F327D] text-center">

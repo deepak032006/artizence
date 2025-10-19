@@ -2,7 +2,7 @@ import React from "react";
 
 const TechnologyStack = () => {
   return (
-    <div className="max-w-5xl ml-auto bg-[#FBFBFD] border border-gray-200 rounded-2xl shadow-md p-10 md:p-12 mr-25 mb-32">
+    <div className="max-w-5xl ml-auto bg-[#FBFBFD] border border-gray-200 rounded-2xl shadow-md p-4 md:p-6 mb-32">
       <h3 className="text-2xl md:text-3xl font-semibold text-[#2E1158] mb-8">
         Tools and frameworks for AI solutions
       </h3>
