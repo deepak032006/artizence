@@ -7,6 +7,7 @@ import Link from "next/link";
 const CustomDiv = () => {
   return (
     <>
+      {/* Hero Section */}
       <div className="relative w-full bg-[#2E1158] min-h-[400px] sm:min-h-[450px] md:min-h-[534px] flex flex-col overflow-hidden">
         <div className="relative z-10 flex-1 flex flex-col items-center justify-end text-center px-4 py-6 sm:py-8 md:py-12">
           <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-12 sm:mt-16 md:mt-24 mb-4 sm:mb-6 md:mb-8">
@@ -32,6 +33,7 @@ const CustomDiv = () => {
         </div>
       </div>
 
+      {/* Bottom Wave and Decorative Shape */}
       <div className="relative w-full z-20 -mt-1">
         <Image
           src="/images/wave.png"
@@ -41,8 +43,9 @@ const CustomDiv = () => {
           className="w-full h-auto object-cover"
           priority
         />
+
         {/* Responsive decorative shape */}
-        <div className="absolute top-2 sm:top-4 md:top-5 left-2 sm:left-4 md:left-8 w-[25%] sm:w-[18%] md:w-[15%] aspect-square">
+        <div className="absolute top-2 sm:top-4 md:top-5 left-2 sm:left-4 md:left-8 w-[15%] sm:w-[18%] md:w-[15%] aspect-square">
           <Image
             src="/images/decor-shape.png"
             alt="Decorative shape"
