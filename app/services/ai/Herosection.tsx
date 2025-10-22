@@ -8,7 +8,7 @@ const CustomDiv = () => {
   return (
     <>
       <div className="relative w-full bg-[#2E1158] min-h-[400px] sm:min-h-[450px] md:min-h-[534px] flex flex-col overflow-hidden">
-        <div className="relative z-10 flex-1 flex flex-col items-center justify-end text-center px-0 py-6 sm:py-8 md:py-12">
+        <div className="relative z-10 flex-1 flex flex-col items-center justify-end text-center px-4 py-6 sm:py-8 md:py-12">
           <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-12 sm:mt-16 md:mt-24 mb-4 sm:mb-6 md:mb-8">
             AI Consulting Company
           </h2>
@@ -41,7 +41,8 @@ const CustomDiv = () => {
           className="w-full h-auto object-cover"
           priority
         />
-        <div className="absolute top-4 sm:top-5 md:top-[20px] left-4 sm:left-6 md:left-[30px] w-[150px] sm:w-[180px] md:w-[245px] h-[150px] sm:h-[180px] md:h-[254px] opacity-100 rotate-0">
+        {/* Responsive decorative shape */}
+        <div className="absolute top-2 sm:top-4 md:top-5 left-2 sm:left-4 md:left-8 w-[25%] sm:w-[18%] md:w-[15%] aspect-square">
           <Image
             src="/images/decor-shape.png"
             alt="Decorative shape"

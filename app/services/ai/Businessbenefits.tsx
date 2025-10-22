@@ -156,7 +156,7 @@ const CenterColumnsWithClients: React.FC = () => {
 
               <button
                 onClick={handlePrev}
-                className="absolute left-0 sm:left-2 md:-left-6 bg-white shadow-md rounded-full p-2 sm:p-3 hover:bg-gray-100 z-10 transition"
+                className="absolute left-0 sm:left-2  bg-white shadow-md rounded-full p-2 sm:p-3 hover:bg-gray-100 z-10 transition"
                 aria-label="Previous testimonial"
               >
                 <ArrowLeft className="text-blue-900 w-5 h-5 sm:w-6 sm:h-6" />
