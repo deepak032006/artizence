@@ -25,7 +25,7 @@ const CenterColumnsWithClients: React.FC = () => {
       name: "Sofia Lin",
       title: "Marketing Director",
       text: "Aenean euismod, justo sit amet varius congue, libero leo tempus leo, et fringilla lorem justo vitae risus. Integer sed nibh ac ipsum consequat tristique.",
-      image: "/images/client3.jpg",
+      image: "/images/client-3.jpg",
     },
   ];
 

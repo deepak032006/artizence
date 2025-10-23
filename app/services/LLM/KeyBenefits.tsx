@@ -2,7 +2,7 @@
 
 export default function KeyBenefits() {
   return (
-    <div className="max-w-5xl mx-auto text-center shadow-md mb-20 px-4 ml-80">
+    <div className="max-w-5xl mx-auto text-center shadow-md mb-20 px-0">
       <h3 className="text-3xl font-semibold mb-4 text-[#2F327D]">
         What business benefits you can get with  custom LLM application?
       </h3>

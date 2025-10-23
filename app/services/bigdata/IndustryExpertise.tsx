@@ -1,20 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 
 export default function Expertise() {
-  const stats = [
-    { label: "AI Experts", value: 100 },
-    { label: "Software Products Delivered", value: 160 },
-    { label: "AI Solutions", value: 50 },
-    { label: "Total Years of Experience", value: 15 },
-  ];
+  const stats = useMemo(
+    () => [
+      { label: "AI Experts", value: 100 },
+      { label: "Software Products Delivered", value: 160 },
+      { label: "AI Solutions", value: 50 },
+      { label: "Total Years of Experience", value: 15 },
+    ],
+    []
+  );
 
   const [counts, setCounts] = useState(stats.map(() => 0));
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // ✅ useCallback so it can safely be added as a dependency
   const startCounting = useCallback(() => {
     const duration = 2000;
     const frameRate = 30;
@@ -35,7 +37,6 @@ export default function Expertise() {
     });
   }, [stats]);
 
-  // ✅ add startCounting to dependency array
   useEffect(() => {
     let observer: IntersectionObserver;
     if (sectionRef.current) {
@@ -56,10 +57,10 @@ export default function Expertise() {
   }, [startCounting]);
 
   return (
-    <div className="flex justify-end pr-10">
-      <section className="w-full bg-white text-[#2F327D] py-20 px-6 md:px-20">
-        {/* ===== Why Work With Us ===== */}
-        <div ref={sectionRef} className="max-w-5xl ml-auto mb-32 shadow-md">
+    <div className="w-full flex justify-center px-4 sm:px-6 md:px-8">
+      <section className="w-full md:w-4/5 lg:w-3/4 bg-white text-[#2F327D] py-20 px-0">
+        {/* Why Work With Us */}
+        <div ref={sectionRef} className="w-full mb-32 shadow-md">
           <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-[#2F327D] text-center">
             Why work with us
           </h2>
@@ -75,8 +76,8 @@ export default function Expertise() {
           </div>
         </div>
 
-        {/* ===== Industry Expertise ===== */}
-        <div className="max-w-5xl ml-auto mb-32 shadow-md">
+        {/* Industry Expertise */}
+        <div className="w-full mb-32 shadow-md">
           <h3 className="text-3xl font-semibold mb-10 text-[#2F327D]">
             Industry expertise
           </h3>
@@ -108,7 +109,7 @@ export default function Expertise() {
               </div>
             </div>
           </div>
-          <div className="flex justify-start gap-4 mt-6">
+          <div className="flex justify-start gap-4 mt-6 flex-wrap">
             <span className="bg-[#6A0DAD] text-white text-sm px-3 py-1 rounded-full">
               Private Investments
             </span>
