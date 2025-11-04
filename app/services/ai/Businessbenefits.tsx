@@ -125,34 +125,42 @@ const CenterColumnsWithClients: React.FC = () => {
       </div>
 
       {/* ===== Clients Section ===== */}
-      <div className="mt-12 sm:mt-16 md:mt-20">
-        <main className="w-full bg-white text-gray-800 flex flex-col items-start justify-end py-10 sm:py-12 md:py-20 px-4 sm:px-6 md:px-8 space-y-12 sm:space-y-16 md:space-y-20 overflow-hidden">
-          <section className="w-full space-y-6 sm:space-y-8">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-900 text-center">
-              What our clients say
-            </h2>
-
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-35">
-              {[ 
-                { src: "/images/google.png", alt: "Google" },
-                { src: "/images/netflix.png", alt: "Netflix" },
-                { src: "/images/Amazon.png", alt: "Amazon" },
-                { src: "/images/grab.png", alt: "Grab" },
-              ].map((logo, i) => (
-                <div
-                  key={i}
-                  className="relative flex items-center justify-center w-24 sm:w-32 md:w-40 lg:w-48 h-12 sm:h-16 md:h-20 flex-shrink-0"
-                >
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </section>
+       <div className="mt-12 sm:mt-16 md:mt-20">
+             <main className="w-full bg-white text-gray-800 flex flex-col items-start justify-end py-10 sm:py-12 md:py-20 px-4 sm:px-6 md:px-8 space-y-12 sm:space-y-16 md:space-y-20 overflow-hidden">
+               <section className="w-full space-y-6 sm:space-y-8">
+                 <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-900 text-center">
+                   Our Clients
+                 </h2>
+                 <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-8 md:gap-15">
+                   {[
+                     { src: "/images/lavatari.png", alt: "Google" },
+                     { src: "/images/metacourt.png", alt: "Netflix" },
+                     { src: "/images/findjobs.jpg", alt: "Amazon" },
+                     { src: "/images/dailyplus.png", alt: "Grab" },
+                   ].map((logo, i) => (
+                     <div
+                       key={i}
+                       className="relative flex items-center justify-center w-28 sm:w-40 md:w-48 lg:w-56 h-12 sm:h-16 md:h-20 flex-shrink-0"
+                     >
+                       <Image
+                         src={logo.src}
+                         alt={logo.alt}
+                         fill
+                          className="object-contain mix-blend-multiply brightness-110"
+                       />
+                       {logo.alt === "Grab" && (
+                         <Image
+                           src="/images/3dglossy.png"
+                           alt="Decorative"
+                           width={180}
+                           height={190}
+                           className="absolute ml-20 top-1/2 left-full -translate-y-38 -translate-x-1/2"
+                         />
+                       )}
+                     </div>
+                   ))}
+                 </div>
+               </section>
 
           <section className="w-full space-y-6 sm:space-y-8 md:space-y-10 relative overflow-hidden">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-900 text-center">

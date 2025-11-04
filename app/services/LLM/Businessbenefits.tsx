@@ -149,22 +149,22 @@ Ready to transform your data analysis capabilities? Contact Addepto to explore h
             <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-900 text-center">
               Our Clients
             </h2>
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-35">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-8 md:gap-15">
               {[
-                { src: "/images/google.png", alt: "Google" },
-                { src: "/images/netflix.png", alt: "Netflix" },
-                { src: "/images/Amazon.png", alt: "Amazon" },
-                { src: "/images/grab.png", alt: "Grab" },
+                { src: "/images/lavatari.png", alt: "Google" },
+                { src: "/images/metacourt.png", alt: "Netflix" },
+                { src: "/images/findjobs.jpg", alt: "Amazon" },
+                { src: "/images/dailyplus.png", alt: "Grab" },
               ].map((logo, i) => (
                 <div
                   key={i}
-                  className="relative flex items-center justify-center w-24 sm:w-32 md:w-40 lg:w-48 h-12 sm:h-16 md:h-20 flex-shrink-0"
+                  className="relative flex items-center justify-center w-28 sm:w-40 md:w-48 lg:w-56 h-12 sm:h-16 md:h-20 flex-shrink-0"
                 >
                   <Image
                     src={logo.src}
                     alt={logo.alt}
                     fill
-                    className="object-contain"
+                     className="object-contain mix-blend-multiply brightness-110"
                   />
                   {logo.alt === "Grab" && (
                     <Image

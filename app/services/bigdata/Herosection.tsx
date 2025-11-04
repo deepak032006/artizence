@@ -33,25 +33,25 @@ const CustomDiv = () => {
 
 
       {/* ===== Decorative Shape (Above Wave & Lowered) ===== */}
-      <div className="absolute bottom-[16%] left-4 sm:left-6 md:left-10 w-[90px] sm:w-[110px] md:w-[140px] z-30">
-        <Image
-          src="/images/decor-shape.png"
-          alt="Decorative shape"
-          width={140}
-          height={140}
-          className="object-contain"
-          priority
-        />
-      </div>
-
-      {/* ===== Wave (Curved & Visible) ===== */}
-      <div className="absolute bottom-[-2px] left-0 w-full z-10 overflow-visible">
+       <div className="absolute bottom-[6%] left-4 sm:left-6 md:left-10 w-[90px] sm:w-[110px] md:w-[140px] z-30">
+              <Image
+                src="/images/decor-shape.png"
+                alt="Decorative shape"
+                width={140}
+                height={140}
+                className="object-contain"
+                priority
+              />
+            </div>
+      
+            {/* ===== Wave (Curved & Visible) ===== */}
+           <div className="absolute bottom-[120px] sm:bottom-[-22px] left-0 w-full z-10 overflow-visible">
         <Image
           src="/images/wave.png"
           alt="Wave shape"
           width={1920}
           height={250}
-          className="w-full h-auto object-cover translate-y-[30px]"
+          className="w-full h-auto object-cover translate-y-[10px] sm:translate-y-[30px]"
           priority
         />
       </div>
