@@ -2,18 +2,13 @@
 
 import React, { useState } from "react";
 
-// ✅ Define types for better clarity
+// ✅ Define types for clarity
 interface TechItem {
   title: string;
   description: string;
 }
 
-interface TechData {
-  [category: string]: TechItem[];
-}
-
-// ✅ Keep this outside the component so it's not redefined on every render
-const techData: TechData = {
+const techData = {
   "Open Source LLM": [
     {
       title: "LLAMA",
@@ -66,11 +61,14 @@ const techData: TechData = {
       description: "Framework for NLP and transformer-based models.",
     },
   ],
-};
+} as const;
+
+// ✅ Derive valid category keys
+type Category = keyof typeof techData;
 
 const TechnologyStack: React.FC = () => {
-  const categories = Object.keys(techData);
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  const categories = Object.keys(techData) as Category[];
+  const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0]);
 
   return (
     <div className="w-full flex justify-center px-4 sm:px-6 md:px-8">
