@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 
-// ✅ Define types for clarity
 interface TechItem {
   title: string;
   description: string;
@@ -63,12 +62,19 @@ const techData = {
   ],
 } as const;
 
-// ✅ Derive valid category keys
+// ✅ Exact keys
 type Category = keyof typeof techData;
+
+// ✅ Typed getter ensures proper narrowing (no implicit `any`)
+function getItems(category: Category): readonly TechItem[] {
+  return techData[category];
+}
 
 const TechnologyStack: React.FC = () => {
   const categories = Object.keys(techData) as Category[];
-  const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0]);
+  const [selectedCategory, setSelectedCategory] = useState<Category>("Open Source LLM");
+
+  const items = getItems(selectedCategory); // ✅ Typed safely here
 
   return (
     <div className="w-full flex justify-center px-4 sm:px-6 md:px-8">
@@ -96,7 +102,8 @@ const TechnologyStack: React.FC = () => {
 
         {/* ===== Display Content ===== */}
         <div className="space-y-4">
-          {techData[selectedCategory].map((item, index) => (
+          {/* ✅ Strict-safe access via typed getter */}
+          {items.map((item, index) => (
             <p key={index} className="text-gray-700 leading-relaxed">
               <strong>{item.title} –</strong> {item.description}
             </p>

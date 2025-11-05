@@ -1,15 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 
 export default function Expertise() {
-  const stats = [
-    { label: "AI Experts", value: 100 },
-    { label: "Software Products Delivered", value: 160 },
-    { label: "AI Solutions", value: 50 },
-    { label: "Total Years of Experience", value: 15 },
-  ];
+  // ✅ Memoize stats so it's stable between renders
+  const stats = useMemo(
+    () => [
+      { label: "AI Experts", value: 100 },
+      { label: "Software Products Delivered", value: 160 },
+      { label: "AI Solutions", value: 50 },
+      { label: "Total Years of Experience", value: 15 },
+    ],
+    []
+  );
 
   const [counts, setCounts] = useState(stats.map(() => 0));
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -32,8 +36,7 @@ export default function Expertise() {
         if (frame === totalFrames) clearInterval(counter);
       }, 1000 / frameRate);
     });
-  }, [stats]);
-
+  }, [stats]); 
   useEffect(() => {
     let observer: IntersectionObserver;
     if (sectionRef.current) {

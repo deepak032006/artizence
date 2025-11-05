@@ -1,5 +1,14 @@
+"use client";
+
 import React, { useState } from "react";
 
+// Define the structure of each tech item
+interface TechItem {
+  title: string;
+  description: string;
+}
+
+// Define the techData object and freeze keys with `as const`
 const techData = {
   "Open Source LLM": [
     {
@@ -53,11 +62,17 @@ const techData = {
       description: "Framework for NLP and transformer-based models.",
     },
   ],
-};
+} as const;
 
-const TechnologyStack = () => {
-  const categories = Object.keys(techData);
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+// Create a type representing all valid category keys
+type Category = keyof typeof techData;
+
+const TechnologyStack: React.FC = () => {
+  // Type the categories array properly
+  const categories = Object.keys(techData) as Category[];
+
+  // Restrict selectedCategory to only valid keys
+  const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0]);
 
   return (
     <div className="w-full flex justify-center px-4 sm:px-6 md:px-8">
@@ -66,7 +81,7 @@ const TechnologyStack = () => {
           Tools and frameworks for AI solutions
         </h3>
 
-        {/* ===== Buttons ===== */}
+        {/* ===== Category Buttons ===== */}
         <div className="flex flex-wrap gap-2 mb-6">
           {categories.map((category) => (
             <button
@@ -85,11 +100,13 @@ const TechnologyStack = () => {
 
         {/* ===== Display Content ===== */}
         <div className="space-y-4">
-          {techData[selectedCategory].map((item, index) => (
-            <p key={index} className="text-gray-700 leading-relaxed">
-              <strong>{item.title} –</strong> {item.description}
-            </p>
-          ))}
+          {(techData as Record<Category, readonly TechItem[]>)[selectedCategory].map(
+            (item, index) => (
+              <p key={index} className="text-gray-700 leading-relaxed">
+                <strong>{item.title} –</strong> {item.description}
+              </p>
+            )
+          )}
         </div>
       </div>
     </div>
