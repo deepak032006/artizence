@@ -1,6 +1,19 @@
+"use client";
+
 import React, { useState } from "react";
 
-const techData = {
+// ✅ Define types for better clarity
+interface TechItem {
+  title: string;
+  description: string;
+}
+
+interface TechData {
+  [category: string]: TechItem[];
+}
+
+// ✅ Keep this outside the component so it's not redefined on every render
+const techData: TechData = {
   "Open Source LLM": [
     {
       title: "LLAMA",
@@ -55,7 +68,7 @@ const techData = {
   ],
 };
 
-const TechnologyStack = () => {
+const TechnologyStack: React.FC = () => {
   const categories = Object.keys(techData);
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
@@ -66,7 +79,7 @@ const TechnologyStack = () => {
           Tools and frameworks for AI solutions
         </h3>
 
-        {/* ===== Buttons ===== */}
+        {/* ===== Category Buttons ===== */}
         <div className="flex flex-wrap gap-2 mb-6">
           {categories.map((category) => (
             <button

@@ -1,16 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export default function Sidebar() {
-  const sections = [
-    { id: "business-benefits", label: "Business Benefits" },
-    { id: "development-process", label: "Development Process" },
-    { id: "industry-expertise", label: "Industry Expertise" },
-    { id: "technology-stack", label: "Technology Stack" },
-    { id: "key-benefits", label: "Key Benefits" },
-    { id: "glossary", label: "Glossary" },
-  ];
+  // ✅ Use useMemo so `sections` is stable between renders
+  const sections = useMemo(
+    () => [
+      { id: "business-benefits", label: "Business Benefits" },
+      { id: "development-process", label: "Development Process" },
+      { id: "industry-expertise", label: "Industry Expertise" },
+      { id: "technology-stack", label: "Technology Stack" },
+      { id: "key-benefits", label: "Key Benefits" },
+      { id: "glossary", label: "Glossary" },
+    ],
+    []
+  );
 
   const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -40,7 +44,7 @@ export default function Sidebar() {
     handleScroll(); // initialize activeId on load
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [sections]); // ✅ safe now because sections is memoized
 
   return (
     <aside className="hidden md:block md:fixed md:top-30 md:left-0 md:h-[calc(100%-5rem)] md:w-64 md:bg-transparent md:text-black md:p-6 md:overflow-y-auto md:z-40">
